@@ -1,0 +1,41 @@
+<template name="welogPosts">
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	{{/contentFor}}
+	{{#contentFor "headerTitle"}}
+      <h1 class="title">Lists</h1>
+	{{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+      <button class="button button-clear" onclick="alert('TODO')">Edit</button>
+	{{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+
+        <div class="button-bar padding" style="width:200px;margin: 0 auto;">
+            <a class="button button-small">最新</a>
+            <a class="button button-small">最热</a>
+        </div>
+
+
+			{{#ionList}}
+				{{#each times}}
+					{{#ionItem iconRight=true avatar=true}}
+
+              <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+
+              <h2>John Smith</h2>
+
+              <p>
+                  dsfasdfasdfas
+              </p>
+              <i class="icon ion-ios-arrow-right">
+              </i>
+
+					{{/ionItem}}
+				{{/each}}
+
+			{{/ionList}}
+		{{/ionContent}}
+	{{/ionView}}
+</template>

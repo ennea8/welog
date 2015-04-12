@@ -1,5 +1,6 @@
 Router.configure({
-  layoutTemplate: 'layout'
+  //layoutTemplate: 'layout'
+  layoutTemplate: 'welogLayout'
 });
 
 Meteor.startup(function () {
@@ -11,32 +12,57 @@ Meteor.startup(function () {
   }
 });
 
-Router.map(function() {
-  this.route('index', {path: '/'});
-  this.route('actionSheet');
-  this.route('backdrop');
-  this.route('forms', {
-    data: function () {
-      return {
-        post: Posts.find().fetch()[0]
-      };
-    }
-  });
-  this.route('headersFooters');
-  this.route('lists');
-  this.route('loading');
-  this.route('modal');
-  this.route('navigation');
-  this.route('navigation.one', {path: '/navigation/one'});
-  this.route('navigation.two', {path: '/navigation/two'});
-  this.route('navigation.three', {path: '/navigation/three'});
-  this.route('popover');
-  this.route('popup');
-  this.route('sideMenu');
-  this.route('slideBox');
-  this.route('tabs.one', {path: '/tabs/one', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
-  this.route('userAccounts');
+//Router.map(function() {
+//  this.route('index', {path: '/'});
+//  this.route('actionSheet');
+//  this.route('backdrop');
+//  this.route('forms', {
+//    data: function () {
+//      return {
+//        post: Posts.find().fetch()[0]
+//      };
+//    }
+//  });
+//  this.route('headersFooters');
+//  this.route('lists');
+//  this.route('loading');
+//  this.route('modal');
+//  this.route('navigation');
+//  this.route('navigation.one', {path: '/navigation/one'});
+//  this.route('navigation.two', {path: '/navigation/two'});
+//  this.route('navigation.three', {path: '/navigation/three'});
+//  this.route('popover');
+//  this.route('popup');
+//  this.route('sideMenu');
+//  this.route('slideBox');
+//  this.route('tabs.one', {path: '/tabs/one', layoutTemplate: 'tabsLayout'});
+//  this.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
+//  this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
+//  this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
+//  this.route('userAccounts');
+//});
+
+Router.route('/', {
+  name:'home',
+  template: 'welogPosts'
 });
+
+
+//////底部三个tab
+Router.route('/posts', {
+  name:'tab.posts',
+  template: 'welogPosts'
+});
+//Router.route('/postsAdd', {
+//  name:'tab.postsAdd',
+//  template: 'welogPostsAdd'
+//});
+Router.route('/settings', {
+  name:'tab.settings',
+  template: 'welogSettings'
+});
+
+
+//详细信息页
+Router.route('/posts/:_id', {name:'welogPostsDetail'});
+

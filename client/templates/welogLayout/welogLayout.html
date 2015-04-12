@@ -1,0 +1,26 @@
+<template name="welogLayout">
+	{{#ionBody}}
+		{{#ionView}}
+
+
+			{{> yield}}
+
+
+			{{#ionTabs class=""}}
+
+				{{> ionTab title="列表" path="tab.posts" iconOff="ios-home" iconOn="ios-home"}}
+
+
+          <a class="tab-item tab-item-positive"
+             data-ion-modal="welogPostsAddModal">
+              <i class="icon ion-plus-round"></i>
+          </a>
+
+				{{> ionTab title="设置" path="tab.settings" iconOff="person" iconOn="person"}}
+			{{/ionTabs}}
+
+
+		{{/ionView}}
+
+	{{/ionBody}}
+</template>
